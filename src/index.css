@@ -1,0 +1,28 @@
+@import "tailwindcss";
+:root{--ease:cubic-bezier(.2,.7,.2,1)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+@keyframes pop{from{opacity:0;transform:scale(.94) translateY(8px)}}
+@keyframes fade{from{opacity:0}}
+@keyframes grow{from{transform:scaleX(0)}}
+@keyframes growy{from{transform:scaleY(0)}}
+@keyframes seg{from{stroke-dasharray:0 100}}
+@keyframes march{to{stroke-dashoffset:-14}}
+@keyframes ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.4);opacity:0}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-14deg)}75%{transform:rotate(14deg)}}
+.page{animation:rise .5s var(--ease)}
+.rise{animation:rise .55s var(--ease) backwards;animation-delay:calc(var(--i,0)*70ms)}
+.pop{animation:pop .25s var(--ease)}.fade{animation:fade .2s}
+.grow{transform-origin:left;animation:grow .9s var(--ease) backwards}
+.growy{transform-origin:bottom;animation:growy .8s var(--ease) backwards;animation-delay:calc(var(--i,0)*60ms)}
+.seg{animation:seg 1.1s var(--ease) backwards}
+.march{animation:march 1s linear infinite}
+.ping{transform-box:fill-box;transform-origin:center;animation:ping 1.8s ease-out infinite}
+.bell:hover{animation:wiggle .5s}
+.lift{transition:transform .25s var(--ease),box-shadow .25s}.lift:hover{transform:translateY(-4px);box-shadow:0 16px 30px -12px rgb(0 0 0/.3)}
+tbody tr{animation:rise .4s var(--ease) backwards;animation-delay:calc(var(--i,0)*45ms)}
+button:active{transform:scale(.96)}
+body,header,aside,section,input,select,td,th{transition:background-color .35s,color .35s,border-color .35s}
+@media(prefers-reduced-motion:reduce){*,*:before{animation:none!important;transition:none!important}}
+:root{--pri:var(--color-indigo-600,#4f46e5);--map:#e0f2fe}
+.draw{stroke-dasharray:1;animation:draw 1.3s var(--ease) backwards}
+@keyframes draw{from{stroke-dashoffset:1}}
